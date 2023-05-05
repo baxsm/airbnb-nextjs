@@ -7,6 +7,8 @@ import ListingCard from "@/components/listings/ListingCard";
 import getCurrentUser from "@/actions/getCurrentUser";
 import { SafeListing } from "@/types";
 
+export const dynamic = 'force-dynamic'
+
 const inter = Inter({ subsets: ["latin"] });
 
 interface HomeProps {
