@@ -5,7 +5,7 @@ import useSearchModal from "@/hooks/useSearchModal";
 import { differenceInDays } from "date-fns";
 import { useSearchParams } from "next/navigation";
 import { FC, useMemo } from "react";
-import { BiSearch } from "react-icons/bi";
+import { Icons } from "../Icons";
 
 const Search: FC = () => {
   const params = useSearchParams();
@@ -62,7 +62,7 @@ const Search: FC = () => {
         <div className="text-sm pl-6 pr-2 text-gray-600 flex flex-row items-center gap-3">
           <div className="hidden sm:block">{guestLabel}</div>
           <div className="p-2 bg-rose-500 rounded-full text-white">
-            <BiSearch size={18} />
+            <Icons.SearchIcon size={18} />
           </div>
         </div>
       </div>

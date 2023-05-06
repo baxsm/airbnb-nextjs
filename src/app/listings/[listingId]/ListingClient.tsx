@@ -1,6 +1,7 @@
 "use client";
 
 import Container from "@/components/Container";
+import { toast } from "@/components/Toast";
 import ListingHead from "@/components/listings/ListingHead";
 import ListingInfo from "@/components/listings/ListingInfo";
 import ListingReservation from "@/components/listings/ListingReservation";
@@ -13,7 +14,6 @@ import { differenceInCalendarDays, eachDayOfInterval } from "date-fns";
 import { useRouter } from "next/navigation";
 import { FC, useCallback, useEffect, useMemo, useState } from "react";
 import { Range } from "react-date-range";
-import { toast } from "react-hot-toast";
 
 const initialDateRange = {
   startDate: new Date(),
@@ -71,12 +71,20 @@ const ListingClient: FC<ListingClientProps> = ({
         listingId: listing?.id,
       })
       .then(() => {
-        toast.success("Listing reserved!");
+        toast({
+          title: 'Listing reserved',
+          message: 'Your listing has been reserved',
+          type: 'success'
+        })
         setDateRange(initialDateRange);
         router.push('/trips');
       })
       .catch(() => {
-        toast.error("Something went wrong");
+        toast({
+          title: 'Oops',
+          message: 'Something went wrong. Please try again later',
+          type: 'error'
+        })
       })
       .finally(() => {
         setIsLoading(false);

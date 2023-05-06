@@ -14,8 +14,8 @@ import Counter from "../inputs/Counter";
 import ImageUpload from "../inputs/ImageUpload";
 import Input from "../inputs/Input";
 import axios from "axios";
-import { toast } from "react-hot-toast";
 import { useRouter } from "next/navigation";
+import { toast } from "../Toast";
 
 const RentModal: FC = () => {
   const router = useRouter();
@@ -86,14 +86,22 @@ const RentModal: FC = () => {
     axios
       .post("/api/listings", data)
       .then((res) => {
-        toast.success("Listing created!");
+        toast({
+          title: "Listing created",
+          message: "Your listing has been created",
+          type: "success",
+        });
         router.refresh();
         reset();
         setStep(STEPS.CATEGORY);
         rentModal.onClose();
       })
       .catch((error) => {
-        toast.error("Something went wrong");
+        toast({
+          title: "Oops",
+          message: "Something went wrong",
+          type: "error",
+        });
       })
       .finally(() => {
         setIsLoading(false);

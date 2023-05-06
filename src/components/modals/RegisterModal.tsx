@@ -1,8 +1,6 @@
 "use client";
 
 import axios from "axios";
-import { AiFillGithub } from "react-icons/ai";
-import { FcGoogle } from "react-icons/fc";
 import { useCallback, useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 
@@ -12,12 +10,12 @@ import { FC } from "react";
 import Modal from "./Modal";
 import Heading from "../Heading";
 import Input from "../inputs/Input";
-
-import { toast } from "react-hot-toast";
 import Button from "../Button";
 
 import { signIn } from "next-auth/react";
 import useLoginModal from "@/hooks/useLoginModal";
+import { Icons } from "../Icons";
+import { toast } from "../Toast";
 
 const RegisterModal: FC = ({}) => {
   const registerModal = useRegisterModal();
@@ -46,9 +44,18 @@ const RegisterModal: FC = ({}) => {
       .then(() => {
         registerModal.onClose();
         loginModal.onOpen();
+        toast({
+          title: "Registered",
+          message: "Your profile has been added, Please log in!",
+          type: "success",
+        });
       })
       .catch((error) => {
-        toast.error("Something went wrong");
+        toast({
+          title: "Oops",
+          message: "Something went wrong",
+          type: "error",
+        });
       })
       .finally(() => {
         setIsLoading(false);
@@ -97,13 +104,13 @@ const RegisterModal: FC = ({}) => {
       <Button
         outline
         label="Continue with Google"
-        icon={FcGoogle}
+        icon={Icons.GoogleIcon}
         onClick={() => {signIn('google')}}
       />
       <Button
         outline
         label="Continue with Github"
-        icon={AiFillGithub}
+        icon={Icons.GithubIcon}
         onClick={() => signIn('github')}
       />
       <div className="text-neutral-500 text-center mt-4 font-light">

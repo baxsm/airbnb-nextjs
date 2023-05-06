@@ -1,8 +1,6 @@
 "use client";
 
 import axios from "axios";
-import { AiFillGithub } from "react-icons/ai";
-import { FcGoogle } from "react-icons/fc";
 import { useCallback, useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 
@@ -13,12 +11,13 @@ import Modal from "./Modal";
 import Heading from "../Heading";
 import Input from "../inputs/Input";
 
-import { toast } from "react-hot-toast";
 import Button from "../Button";
 import useLoginModal from "@/hooks/useLoginModal";
 
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import { Icons } from "../Icons";
+import { toast } from "../Toast";
 
 const LoginModal: FC = ({}) => {
   const router = useRouter();
@@ -48,13 +47,21 @@ const LoginModal: FC = ({}) => {
     }).then((callback) => {
       setIsLoading(false);
       if (callback?.ok) {
-        toast.success("Logged in");
+        toast({
+          title: "Logged in",
+          message: "Successfully logged in, Enjoy!",
+          type: "success",
+        });
         router.refresh();
         loginModal.onClose();
       }
 
       if (callback?.error) {
-        toast.error(callback.error);
+        toast({
+          title: "Oops",
+          message: callback.error,
+          type: "error",
+        });
       }
     });
   };
@@ -62,7 +69,7 @@ const LoginModal: FC = ({}) => {
   const toggle = useCallback(() => {
     loginModal.onClose();
     registerModal.onOpen();
-  },[loginModal, registerModal])
+  }, [loginModal, registerModal]);
 
   const bodyContent = (
     <div className="flex flex-col gap-4">
@@ -93,14 +100,18 @@ const LoginModal: FC = ({}) => {
       <Button
         outline
         label="Continue with Google"
-        icon={FcGoogle}
-        onClick={() => {signIn('google')}}
+        icon={Icons.GoogleIcon}
+        onClick={() => {
+          signIn("google");
+        }}
       />
       <Button
         outline
         label="Continue with Github"
-        icon={AiFillGithub}
-        onClick={() => {signIn('github')}}
+        icon={Icons.GithubIcon}
+        onClick={() => {
+          signIn("github");
+        }}
       />
       <div className="text-neutral-500 text-center mt-4 font-light">
         <div className="flex flex-row items-center gap-2 text-center justify-center">
