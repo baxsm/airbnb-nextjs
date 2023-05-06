@@ -74,3 +74,12 @@ export const Icons = {
   DiamondIcon,
   VillaIcon
 };
+
+import {FiAlertTriangle as error} from 'react-icons/fi';
+import {IoCheckmarkDone as success} from 'react-icons/io5'
+
+export const ToastIcons = {
+  success: success,
+  error: error,
+  default: success
+}

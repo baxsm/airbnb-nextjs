@@ -19,7 +19,7 @@ const ListingPage = async ({ params }: { params: ListingPageProps }) => {
   }
 
   return (
-    <div className="bg-[#f5f5f5] dark:bg-black/95">
+    <div className="bg-[#f5f5f5] dark:bg-[#050505]/[0.5]">
       <ListingClient
         listing={listing}
         currentUser={currentUser}
