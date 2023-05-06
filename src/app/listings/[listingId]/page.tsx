@@ -14,14 +14,18 @@ const ListingPage = async ({ params }: { params: ListingPageProps }) => {
   const reservations = await getReservations(params);
   const currentUser = await getCurrentUser();
 
-  if(!listing) {
-    return (
-        <EmptyState />
-    )
+  if (!listing) {
+    return <EmptyState />;
   }
 
   return (
-    <ListingClient listing={listing} currentUser={currentUser} reservations={reservations}/>
+    <div className="bg-[#f5f5f5] dark:bg-black/95">
+      <ListingClient
+        listing={listing}
+        currentUser={currentUser}
+        reservations={reservations}
+      />
+    </div>
   );
 };
 

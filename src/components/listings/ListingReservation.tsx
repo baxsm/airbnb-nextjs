@@ -25,10 +25,10 @@ const ListingReservation: FC<ListingReservationProps> = ({
   disabledDates,
 }) => {
   return (
-    <div className="bg-white rounded-xl border-[1px] border-neutral-200 overflow-hidden">
+    <div className="bg-white dark:bg-zinc-800 rounded-xl border-[1px] border-neutral-200 dark:border-gray-800 overflow-hidden">
         <div className="flex flex-row items-center gap-1 p-4">
             <div className="text-2xl font-semibold">$ {price}</div>
-            <div className="font-light text-neutral-600">night</div>
+            <div className="font-light text-neutral-600 dark:text-neutral-400">night</div>
         </div>
         <hr />
         <Calendar value={dateRange} disabledDates={disabledDates} onChange={(value) => onChangeDate(value.selection)}/>

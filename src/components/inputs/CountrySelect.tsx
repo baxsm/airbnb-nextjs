@@ -31,7 +31,7 @@ const CountrySelect: FC<CountrySelectProps> = ({ value, onChange }) => {
         formatOptionLabel={(option: any) => (
           <div className="flex flex-row items-center gap-3">
             <div className="">{option.flag}</div>
-            <div className="">
+            <div className="dark:text-black">
               {option.label},{" "}
               <span className="text-neutral-500 ml-1">{option.region}</span>
             </div>

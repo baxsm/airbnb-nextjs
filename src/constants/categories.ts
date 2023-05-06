@@ -38,7 +38,7 @@ export const categories = [
   },
   {
     label: "Skiing",
-    icon: Icons.BoatFishingIcon,
+    icon: Icons.SkiingIcon,
     description: "This property has skiing activities!",
   },
   {

@@ -117,7 +117,7 @@ const LoginModal: FC = ({}) => {
         <div className="flex flex-row items-center gap-2 text-center justify-center">
           <div className="">First time using Airbnb?</div>
           <div
-            className="text-neutral-800 cursor-pointer hover:underline"
+            className="text-neutral-800 dark:text-gray-200 cursor-pointer hover:underline"
             onClick={toggle}
           >
             Create an account

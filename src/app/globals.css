@@ -29,3 +29,31 @@ body,
   width: 100% !important;
   font-size: 16px !important;
 }
+
+.react-switch-bg div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  width: auto;
+}
+
+.react-switch-bg div:nth-child(1) {
+  justify-content: start;
+  padding-left: 5px;
+}
+
+.react-switch-bg div:nth-child(2) {
+  justify-content: end;
+  padding-right: 5px;
+}
+
+div,
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  transition: 0.3s;
+}

@@ -1,9 +1,10 @@
-'use client';
+"use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
 import { FC, useCallback } from "react";
 import { IconType } from "react-icons";
 import qs from "query-string";
+import { cn } from "@/libs/utils";
 
 interface CategoryBoxProps {
   icon: IconType;
@@ -45,11 +46,11 @@ const CategoryBox: FC<CategoryBoxProps> = ({ icon: Icon, label, selected }) => {
   return (
     <div
       onClick={handleClick}
-      className={`flex flex-col items-center justify-center gap-2 p-3 border-b-2 hover:text-neutral-800 transition cursor-pointer ${
-        selected
-          ? "border-b-neutral-800 text-neutral-800"
-          : "border-transparent text-neutral-500"
-      }`}
+      className={cn(
+        "flex flex-col items-center justify-center gap-2 p-3 border-b-2 hover:text-neutral-800 dark:hover:text-gray-100 transition cursor-pointer",
+        selected && "border-b-neutral-800 text-neutral-800 dark:text-gray-100",
+        !selected && "border-transparent text-neutral-500 dark:text-gray-500"
+      )}
     >
       <Icon size={26} />
       <div className="font-medium text-sm">{label}</div>

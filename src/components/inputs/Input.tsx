@@ -30,7 +30,7 @@ const Input: FC<InputProps> = ({
       {formatPrice && (
         <Icons.DollarIcon
           size={24}
-          className="text-neutral-700 absolute top-5 left-2"
+          className="text-neutral-700 dark:text-gray-100 absolute top-5 left-2"
         />
       )}
       <input
@@ -39,12 +39,12 @@ const Input: FC<InputProps> = ({
         {...register(id, { required })}
         placeholder=" "
         type={type}
-        className={`peer w-full p-4 pt-6 font-light bg-white border-2 rounded-md outline-none transition disabled:opacity-70 disabled:cursor-not-allowed ${
+        className={`peer w-full p-4 pt-6 font-light bg-white dark:bg-gray-800 border-2 rounded-md outline-none transition disabled:opacity-70 disabled:cursor-not-allowed ${
           formatPrice ? "pl-9" : "pl-4"
         } ${
           errors[id]
             ? "border-rose-500 focus:border-rose-500"
-            : "border-neutral-300 focus:border-black"
+            : "border-neutral-300 dark:border-gray-600 dark:focus:border-gray-400 focus:border-black"
         }`}
       />
       <label

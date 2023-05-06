@@ -18,10 +18,9 @@ const FavoritesPage = async () => {
   }
 
   return (
-    <FavoritesClient 
-        listings={listings}
-        currentUser={currentUser}
-    />
+    <div className="bg-[#f5f5f5] dark:bg-black/95">
+      <FavoritesClient listings={listings} currentUser={currentUser} />
+    </div>
   );
 };
 
